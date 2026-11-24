@@ -1,0 +1,21 @@
+{
+ "voxel": 0.25,
+ "glow": [],
+ "sprites": [
+  {
+   "file": "back_0_flat.png",
+   "on": "back",
+   "mode": "flat",
+   "rect": [
+    3.0,
+    1.25,
+    13.0,
+    12.5
+   ],
+   "z": [
+    2.5,
+    5.0
+   ]
+  }
+ ]
+}

@@ -1,13 +1,16 @@
 # NexiumPack
 
 The resource pack of the **NEXIUM** prison server: **54 hats, 36 back
-items, 8 outfits, 30 pickaxe skins** and the Skin Crate, about 3 MB.
+items, 8 outfits, 30 pickaxe skins** and the Skin Crate, about 2 MB.
 
-Every model is built from voxels four times finer than a skin pixel (a head
-is 32 voxels wide, like a 32x skin), with its own texture: woven straw,
+The **outfits**, the **wings** and the **capes** are the pixel art of the
+design sheets, copied pixel for pixel into `tools/art/` and built from there:
+armour, helmet faces, wings, crowns, halos, jetpacks. The hats and the other
+back items are built from voxels four times finer than a skin pixel (a head
+is 32 voxels wide, like a 32x skin), with their own texture: woven straw,
 knitted wool, polished gold, cut gems, brushed metal, glass, fur and so on,
 soft shadows in every crease and a light edge on every corner. Glowing
-parts (halos, visors, flames, crystals) really glow in the dark.
+parts (halos, visors, flames, crystals, lava edges) really glow in the dark.
 
 Players never download anything by hand: the server's **NexiumPack**
 plugin sends this pack to every player when they join. Everything custom
@@ -52,8 +55,10 @@ pack/                                    what goes into the zip
   assets/nexium/textures/item/cos/<kind>/<id>.png   each model's own texture
   assets/nexium/textures/item/pick/      the 32x32 pickaxe icons
   assets/nexium/equipment/<id>.json      outfit armour layers
-  assets/nexium/textures/entity/equipment/{humanoid,humanoid_leggings}/<id>.png  (256x128)
+  assets/nexium/textures/entity/equipment/{humanoid,humanoid_leggings}/<id>.png  (128x64)
 tools/
+  art/outfits/<id>/                      outfit pixel art (see below)
+  art/backs/<id>/                        wings and capes as pixel art
   build_cos.py                           generates every cosmetic into pack/
   buildpack.py                           builds build/NexiumPack.zip (CI runs this)
   gen/hd.py                              voxel models: shapes and materials
@@ -91,8 +96,21 @@ combined with `|`, `&`, `-` and moved with `.move()` / `.rot()`. Materials:
 `solid`, `gold`, `silver`, `gem`, `crystal`, `velvet`, `fabric`, `knit`,
 `fur`, `wood`, `leather`, `straw`, `stone`, `metal`, `glass`, `glow`,
 `grad`, `stripes`. Back items go in `backs.py` (`@back`, wings with
-`wings.py`), outfits in `outfits.py` (`@outfit`), pickaxe skins in
-`pickaxes.py` (`@pick`). Then:
+`wings.py`), pickaxe skins in `pickaxes.py` (`@pick`).
+
+Outfits, wings and capes are drawn as pixel art instead
+(`tools/art/outfits/<id>/`, `tools/art/backs/<id>/`, read by
+`gen/outfits.py`; a back item with an art folder uses it instead of its
+function in `backs.py`):
+
+| File | What |
+|---|---|
+| `humanoid.png`, `humanoid_leggings.png` | the armour, Minecraft's 64x32 armour layout at 2x |
+| `head_front.png`, `head_back.png` | the helmet's front and back (sides and top continue their edges) |
+| `<head or back>_<n>_<mode>.png` | a sprite, one pixel = a quarter skin pixel |
+| `art.json` | where each sprite goes and how: `wing` (the left wing, swept back 22.5 degrees, the right one mirrors it), `flat` (a thin plate: capes, rings), `slab` (pushed through z: crests, antlers, jetpacks), `band` (on all four sides of the head: crowns), `ring` (bent round a level ring: halos); `glow` colours light up |
+
+Edit the PNGs in any pixel editor and run the build. Then:
 
 ```
 pip install pillow numpy

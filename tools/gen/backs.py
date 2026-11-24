@@ -667,3 +667,15 @@ def propeller_pack():
     m.fill(cyl_z(8, 8.4, 0.6, 1.9, 3.6), metal("3a3e48"))
     m.fill(sphere(8, 8.4, 1.9, 0.35), gold())
     return m
+
+
+# the winged back items are lifted from the reference sheet (tools/art/backs/<id>/)
+def _from_art():
+    from outfits import back_from_art, ART_BACKS
+    for i, (id, name, rarity, fn) in enumerate(BACKS):
+        d = ART_BACKS / id
+        if (d / "art.json").exists():
+            BACKS[i] = (id, name, rarity, (lambda d, id: lambda: back_from_art(d, id))(d, id))
+
+
+_from_art()
