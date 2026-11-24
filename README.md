@@ -67,6 +67,7 @@ tools/
   art/backs/<id>/                        wings and capes as pixel art
   build_cos.py                           generates every cosmetic into pack/
   build_gui.py                           the menu title banner + its font
+  build_shaders.py                       the rainbow wave text shader (overlays nx_wave_88 / nx_wave_97)
   buildpack.py                           builds build/NexiumPack.zip (CI runs this)
   gen/hd.py                              voxel models: shapes and materials
   gen/bake.py                            voxels -> boxes + one baked texture per model
@@ -129,6 +130,18 @@ writes the models and textures into `pack/`, updates `cosmetics.json` and
 draws `previews/*.png` so you can look at the result without starting
 Minecraft. Push `pack/`, `tools/` and `cosmetics.json` together.
 
+## Rainbow wave in chat
+
+The REBIRTH / PRESTIGE words of the rebirth and prestige lines in chat are
+a rainbow that runs along the word. The server sends them in seven special
+colours (`WAVE` in `tools/build_shaders.py`); the pack's text shader turns
+exactly these colours (and their shadows) into the moving rainbow and draws
+all other text like vanilla. The shader file differs per Minecraft version,
+so it comes as overlays (`pack.mcmeta`): `pack/nx_wave_88/` for 26.2 and
+`pack/nx_wave_97/` for 26.3. Other versions show the seven colours as a
+still rainbow. `python tools/build_shaders.py` writes both overlays; a new
+Minecraft version needs its vanilla `core/text.vsh` added there.
+
 ## Menu title banner
 
 `python tools/build_gui.py --preview` draws the banner and the title font
@@ -155,8 +168,8 @@ doesn't exist stops the build (in game it would be the purple and black
 
 ## Minecraft versions
 
-`pack.mcmeta` says the pack works from 1.21.4 (format 46) to 26.2
-(format 88): item model definitions (`items/`) need 1.21.4 or newer. When the
+`pack.mcmeta` says the pack works from 1.21.4 (format 46) to 26.3
+(format 97): item model definitions (`items/`) need 1.21.4 or newer. When the
 server moves to a newer Minecraft, raise `max_format` to that version's
 resource pack format (Minecraft wiki, "Pack format").
 

@@ -1,12 +1,44 @@
 {
   "pack": {
     "description": [
-      {"text": "NEXIUM", "color": "#3EE07F", "bold": true},
-      {"text": " server pack", "color": "gray"}
+      {
+        "text": "NEXIUM",
+        "color": "#3EE07F",
+        "bold": true
+      },
+      {
+        "text": " server pack",
+        "color": "gray"
+      }
     ],
     "min_format": 46,
-    "max_format": 88,
+    "max_format": 97,
     "pack_format": 46,
-    "supported_formats": [46, 64]
+    "supported_formats": [
+      46,
+      64
+    ]
+  },
+  "overlays": {
+    "entries": [
+      {
+        "formats": [
+          88,
+          88
+        ],
+        "min_format": 88,
+        "max_format": 88,
+        "directory": "nx_wave_88"
+      },
+      {
+        "formats": [
+          97,
+          97
+        ],
+        "min_format": 97,
+        "max_format": 97,
+        "directory": "nx_wave_97"
+      }
+    ]
   }
 }
