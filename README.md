@@ -41,6 +41,11 @@ releases are kept.
 | Outfit | `nexium:outfit/<id>_head`, `_back` + equipment `nexium:<id>` | head look, armour textures on chest / legs / feet, wings or cape |
 | Pickaxe skin | `nexium:pick/<id>` | the pickaxe's look (Skin Crate, `/skins`): a 32x32 icon in menus, a 3D model in the hand |
 
+Menus: every menu gets a blue title banner with its name in white capitals,
+centred (font `nexium:gui`: `textures/font/gui/banner.png` and a small
+title font, made by `tools/build_gui.py`). The NexiumPack plugin swaps the
+title when a menu opens; the scripts keep their plain titles.
+
 The server's scripts (`50_systems/coswear.sk`, `pickskins.sk`,
 `cosmetics.sk` in the SimuxPrison repository) know the ids. A new cosmetic
 needs an entry there too, otherwise nobody can get it.
@@ -55,11 +60,13 @@ pack/                                    what goes into the zip
   assets/nexium/textures/item/cos/<kind>/<id>.png   each model's own texture
   assets/nexium/textures/item/pick/      the 32x32 pickaxe icons
   assets/nexium/equipment/<id>.json      outfit armour layers
+  assets/nexium/font/gui.json            menu title banner font (+ textures/font/gui/)
   assets/nexium/textures/entity/equipment/{humanoid,humanoid_leggings}/<id>.png  (128x64)
 tools/
   art/outfits/<id>/                      outfit pixel art (see below)
   art/backs/<id>/                        wings and capes as pixel art
   build_cos.py                           generates every cosmetic into pack/
+  build_gui.py                           the menu title banner + its font
   buildpack.py                           builds build/NexiumPack.zip (CI runs this)
   gen/hd.py                              voxel models: shapes and materials
   gen/bake.py                            voxels -> boxes + one baked texture per model
@@ -121,6 +128,16 @@ python tools/build_cos.py --only hat:pointy_hat --preview     # just one, quickl
 writes the models and textures into `pack/`, updates `cosmetics.json` and
 draws `previews/*.png` so you can look at the result without starting
 Minecraft. Push `pack/`, `tools/` and `cosmetics.json` together.
+
+## Menu title banner
+
+`python tools/build_gui.py --preview` draws the banner and the title font
+into `pack/` and shows four sample menus in `previews/gui.png`. The plugin
+needs the width of every letter: after changing a letter run
+`python tools/build_gui.py --java` and copy the three lines into
+`GuiTitles.java` (SimuxPrison repository, `nexiumpack/`). Names that are too
+wide for the banner use the thin letters, and are cut with `..` if even
+those don't fit.
 
 ## Size and speed
 
