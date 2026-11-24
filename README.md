@@ -1,7 +1,8 @@
 # NexiumPack
 
 The resource pack of the **NEXIUM** prison server: **54 hats, 36 back
-items, 8 outfits, 30 pickaxe skins** and the Skin Crate, about 2 MB.
+items, 8 outfits, 30 pickaxe skins**, the Skin Crate and **158 chat
+emojis**, about 2.3 MB.
 
 The **outfits**, the **wings** and the **capes** are the pixel art of the
 design sheets, copied pixel for pixel into `tools/art/` and built from there:
@@ -61,12 +62,14 @@ pack/                                    what goes into the zip
   assets/nexium/textures/item/pick/      the 32x32 pickaxe icons
   assets/nexium/equipment/<id>.json      outfit armour layers
   assets/nexium/font/gui.json            menu title banner font (+ textures/font/gui/)
+  assets/minecraft/font/default.json     chat emojis (+ textures/font/emoji/emoji.png, its licence)
   assets/nexium/textures/entity/equipment/{humanoid,humanoid_leggings}/<id>.png  (128x64)
 tools/
   art/outfits/<id>/                      outfit pixel art (see below)
   art/backs/<id>/                        wings and capes as pixel art
   build_cos.py                           generates every cosmetic into pack/
   build_gui.py                           the menu title banner + its font
+  build_emoji.py                         the chat emojis (art/emoji/: the Noto Emoji sources)
   build_shaders.py                       the rainbow wave text shader (overlays nx_wave_88 / nx_wave_97)
   buildpack.py                           builds build/NexiumPack.zip (CI runs this)
   gen/hd.py                              voxel models: shapes and materials
@@ -80,7 +83,8 @@ previews/                                preview sheets (hats.png, backs.png ...
 ```
 
 Everything under `pack/assets/nexium/` except `pack.mcmeta` / `pack.png`
-is generated: change the generator, not the files.
+is generated: change the generator, not the files (also
+`pack/assets/minecraft/font/default.json`).
 
 ## Adding or changing a cosmetic
 
@@ -150,6 +154,34 @@ read `formats`), and Minecraft 26.x only accepts `formats` when at least one
 entry reaches below format 65. That is the job of the `nx_compat` entry
 (format 46, an empty folder): keep it. `tools/buildpack.py` checks these
 rules and stops the build when one is broken.
+
+## Chat emojis
+
+Minecraft has no colour emoji: a real emoji shows as a box or a small
+grey drawing. `python tools/build_emoji.py --preview` puts 158 emoji
+pictures (Noto Emoji by Google, Apache License 2.0, the licence is in
+`textures/font/emoji/`) into the chat font `minecraft:default` and shows
+them in `previews/emoji.png`; `--fetch` downloads missing source pictures
+into `tools/art/emoji/`.
+
+- Emojis past U+FFFF (😂 🔥 💎 ...) keep their real code point, so one
+  pasted from a phone or Discord shows as the picture too.
+- Emojis inside U+0000 - U+FFFF (❤ ✨ ✅ ⚡ ⛏ ...) use private-use code points
+  from U+E100: vanilla already draws most of them plainly and the server's
+  menus use those, so they stay as they are.
+- The invisible emoji helpers (U+FE0E, U+FE0F, the zero-width joiner,
+  the skin tones) get no width; vanilla drew them as boxes (❤️ was a heart
+  and a box).
+- Nothing of vanilla is replaced: the fonts of all packs are merged and
+  the pack's providers go first, so only these code points change.
+
+The server (SimuxPrison `60_ui/emoji.sk`) turns `:fire:` and `:)` into
+these characters, shows them white without a shadow (a font picture is
+multiplied with the text colour) and lists them in `/emojis`. Its list of
+names and code points must match `EMOJI` in `build_emoji.py`:
+`python tools/build_emoji.py --list` prints it. Tested in a real 26.3
+client with the vanilla unifont loaded: the pictures win over its plain
+emoji, every other symbol (♛ ✬ ❅ ⛁ ...) still shows.
 
 ## Menu title banner
 
