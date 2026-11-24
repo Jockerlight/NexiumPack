@@ -1,0 +1,69 @@
+# Builds the resource pack from pack/ and publishes it as a GitHub release
+# (NexiumPack.zip + pack.json). The NexiumPack plugin on the server reads
+#   https://github.com/<owner>/NexiumPack/releases/latest/download/pack.json
+# every 5 minutes and sends a new pack to the players by itself.
+#
+# Each release is named after the pack's SHA-1 (pack-<12 characters>), so a
+# release link never changes its file. A push that doesn't change the pack
+# makes no new release. The 10 newest releases are kept.
+
+name: Release pack
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release-pack
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Build the pack
+        id: build
+        run: |
+          url="https://github.com/${GITHUB_REPOSITORY}/releases/download/pack-{short}/NexiumPack.zip"
+          python tools/buildpack.py --manifest "$url"
+          sha1=$(python -c 'import json; print(json.load(open("build/pack.json"))["sha1"])')
+          echo "sha1=$sha1" >> "$GITHUB_OUTPUT"
+          echo "tag=pack-${sha1:0:12}" >> "$GITHUB_OUTPUT"
+
+      - name: Publish the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ steps.build.outputs.tag }}
+          SHA1: ${{ steps.build.outputs.sha1 }}
+        run: |
+          if gh release view "$TAG" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            echo "This pack is already released as $TAG: making it the latest again"
+            gh release edit "$TAG" --repo "$GITHUB_REPOSITORY" --latest
+            exit 0
+          fi
+          msg=$(git log -1 --format=%s)
+          gh release create "$TAG" build/NexiumPack.zip build/pack.json \
+            --repo "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --latest \
+            --title "$TAG" \
+            --notes "SHA-1 \`$SHA1\` · $msg"
+
+      - name: Delete old releases (keep 10)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release list --repo "$GITHUB_REPOSITORY" --limit 100 --json tagName --jq '.[10:][].tagName' |
+          while read -r t; do
+            echo "delete $t"
+            gh release delete "$t" --repo "$GITHUB_REPOSITORY" --yes --cleanup-tag
+          done

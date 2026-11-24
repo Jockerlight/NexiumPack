@@ -1,0 +1,12 @@
+{
+  "pack": {
+    "description": [
+      {"text": "NEXIUM", "color": "#3EE07F", "bold": true},
+      {"text": " server pack", "color": "gray"}
+    ],
+    "min_format": 46,
+    "max_format": 88,
+    "pack_format": 46,
+    "supported_formats": [46, 64]
+  }
+}
