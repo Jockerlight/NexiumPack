@@ -32,6 +32,9 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Install Pillow (PNG optimisation)
+        run: pip install --quiet "pillow>=11"
+
       - name: Build the pack
         id: build
         run: |

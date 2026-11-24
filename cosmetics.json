@@ -1,0 +1,812 @@
+[
+ {
+  "kind": "hat",
+  "id": "cyber_halo",
+  "name": "Cyber Halo",
+  "rarity": "EPIC"
+ },
+ {
+  "kind": "hat",
+  "id": "crown",
+  "name": "Crown",
+  "rarity": "RARE"
+ },
+ {
+  "kind": "hat",
+  "id": "fishing_cap",
+  "name": "Fishing Cap",
+  "rarity": "COMMON"
+ },
+ {
+  "kind": "hat",
+  "id": "straw_hat",
+  "name": "Straw Hat",
+  "rarity": "COMMON"
+ },
+ {
+  "kind": "hat",
+  "id": "miner_lamp",
+  "name": "Miner Lamp",
+  "rarity": "COMMON"
+ },
+ {
+  "kind": "hat",
+  "id": "space_helmet",
+  "name": "Space Helmet",
+  "rarity": "LEGENDARY"
+ },
+ {
+  "kind": "hat",
+  "id": "crystal_horns",
+  "name": "Crystal Horns",
+  "rarity": "EPIC"
+ },
+ {
+  "kind": "hat",
+  "id": "bunny_ears",
+  "name": "Bunny Ears",
+  "rarity": "COMMON"
+ },
+ {
+  "kind": "hat",
+  "id": "wizard_hat",
+  "name": "Wizard Hat",
+  "rarity": "RARE"
+ },
+ {
+  "kind": "hat",
+  "id": "goggles",
+  "name": "Goggles",
+  "rarity": "COMMON"
+ },
+ {
+  "kind": "hat",
+  "id": "sunflower_crown",
+  "name": "Sunflower Crown",
+  "rarity": "COMMON"
+ },
+ {
+  "kind": "hat",
+  "id": "neon_visor",
+  "name": "Neon Visor",
+  "rarity": "RARE"
+ },
+ {
+  "kind": "hat",
+  "id": "tiny_ufo",
+  "name": "Tiny UFO",
+  "rarity": "EPIC"
+ },
+ {
+  "kind": "hat",
+  "id": "ghost_buddy",
+  "name": "Ghost Buddy",
+  "rarity": "RARE"
+ },
+ {
+  "kind": "hat",
+  "id": "top_hat",
+  "name": "Top Hat",
+  "rarity": "RARE"
+ },
+ {
+  "kind": "hat",
+  "id": "beanie",
+  "name": "Beanie",
+  "rarity": "COMMON"
+ },
+ {
+  "kind": "hat",
+  "id": "headphones",
+  "name": "Headphones",
+  "rarity": "RARE"
+ },
+ {
+  "kind": "hat",
+  "id": "cat_ears",
+  "name": "Cat Ears",
+  "rarity": "COMMON"
+ },
+ {
+  "kind": "hat",
+  "id": "viking_helmet",
+  "name": "Viking Helmet",
+  "rarity": "EPIC"
+ },
+ {
+  "kind": "hat",
+  "id": "flower_crown",
+  "name": "Flower Crown",
+  "rarity": "COMMON"
+ },
+ {
+  "kind": "hat",
+  "id": "chef_hat",
+  "name": "Chef Hat",
+  "rarity": "COMMON"
+ },
+ {
+  "kind": "hat",
+  "id": "pirate_hat",
+  "name": "Pirate Hat",
+  "rarity": "EPIC"
+ },
+ {
+  "kind": "hat",
+  "id": "propeller_cap",
+  "name": "Propeller Cap",
+  "rarity": "RARE"
+ },
+ {
+  "kind": "hat",
+  "id": "party_hat",
+  "name": "Party Hat",
+  "rarity": "COMMON"
+ },
+ {
+  "kind": "hat",
+  "id": "angel_halo",
+  "name": "Angel Halo",
+  "rarity": "RARE"
+ },
+ {
+  "kind": "hat",
+  "id": "void_halo",
+  "name": "Void Halo",
+  "rarity": "EPIC"
+ },
+ {
+  "kind": "hat",
+  "id": "royal_crown",
+  "name": "Royal Crown",
+  "rarity": "LEGENDARY"
+ },
+ {
+  "kind": "hat",
+  "id": "ice_crown",
+  "name": "Ice Crown",
+  "rarity": "EPIC"
+ },
+ {
+  "kind": "hat",
+  "id": "laurel_wreath",
+  "name": "Laurel Wreath",
+  "rarity": "RARE"
+ },
+ {
+  "kind": "hat",
+  "id": "captain_hat",
+  "name": "Captain Hat",
+  "rarity": "RARE"
+ },
+ {
+  "kind": "hat",
+  "id": "sou_wester",
+  "name": "Sou'wester",
+  "rarity": "COMMON"
+ },
+ {
+  "kind": "hat",
+  "id": "diving_helmet",
+  "name": "Diving Helmet",
+  "rarity": "LEGENDARY"
+ },
+ {
+  "kind": "hat",
+  "id": "fish_hat",
+  "name": "Fish Hat",
+  "rarity": "RARE"
+ },
+ {
+  "kind": "hat",
+  "id": "drill_helmet",
+  "name": "Drill Helmet",
+  "rarity": "EPIC"
+ },
+ {
+  "kind": "hat",
+  "id": "hard_hat",
+  "name": "Hard Hat",
+  "rarity": "COMMON"
+ },
+ {
+  "kind": "hat",
+  "id": "farmer_cap",
+  "name": "Farmer Cap",
+  "rarity": "COMMON"
+ },
+ {
+  "kind": "hat",
+  "id": "sun_hat",
+  "name": "Sun Hat",
+  "rarity": "COMMON"
+ },
+ {
+  "kind": "hat",
+  "id": "pumpkin_hat",
+  "name": "Pumpkin Hat",
+  "rarity": "EPIC"
+ },
+ {
+  "kind": "hat",
+  "id": "mushroom_cap",
+  "name": "Mushroom Cap",
+  "rarity": "RARE"
+ },
+ {
+  "kind": "hat",
+  "id": "fox_ears",
+  "name": "Fox Ears",
+  "rarity": "COMMON"
+ },
+ {
+  "kind": "hat",
+  "id": "bear_ears",
+  "name": "Bear Ears",
+  "rarity": "COMMON"
+ },
+ {
+  "kind": "hat",
+  "id": "frog_hat",
+  "name": "Frog Hat",
+  "rarity": "RARE"
+ },
+ {
+  "kind": "hat",
+  "id": "knight_helm",
+  "name": "Knight Helm",
+  "rarity": "LEGENDARY"
+ },
+ {
+  "kind": "hat",
+  "id": "cowboy_hat",
+  "name": "Cowboy Hat",
+  "rarity": "RARE"
+ },
+ {
+  "kind": "hat",
+  "id": "witch_hat",
+  "name": "Witch Hat",
+  "rarity": "EPIC"
+ },
+ {
+  "kind": "hat",
+  "id": "graduation_cap",
+  "name": "Graduation Cap",
+  "rarity": "RARE"
+ },
+ {
+  "kind": "hat",
+  "id": "traffic_cone",
+  "name": "Traffic Cone",
+  "rarity": "COMMON"
+ },
+ {
+  "kind": "hat",
+  "id": "winter_hat",
+  "name": "Winter Hat",
+  "rarity": "RARE"
+ },
+ {
+  "kind": "hat",
+  "id": "coral_crown",
+  "name": "Coral Crown",
+  "rarity": "EPIC"
+ },
+ {
+  "kind": "hat",
+  "id": "gem_tiara",
+  "name": "Gem Tiara",
+  "rarity": "LEGENDARY"
+ },
+ {
+  "kind": "hat",
+  "id": "snorkel_mask",
+  "name": "Snorkel Mask",
+  "rarity": "RARE"
+ },
+ {
+  "kind": "hat",
+  "id": "antenna_band",
+  "name": "Antenna Band",
+  "rarity": "COMMON"
+ },
+ {
+  "kind": "hat",
+  "id": "welding_mask",
+  "name": "Welding Mask",
+  "rarity": "RARE"
+ },
+ {
+  "kind": "hat",
+  "id": "gear_crown",
+  "name": "Gear Crown",
+  "rarity": "EPIC"
+ },
+ {
+  "kind": "back",
+  "id": "crystal_wings",
+  "name": "Crystal Wings",
+  "rarity": "LEGENDARY"
+ },
+ {
+  "kind": "back",
+  "id": "bee_wings",
+  "name": "Bee Wings",
+  "rarity": "RARE"
+ },
+ {
+  "kind": "back",
+  "id": "angel_wings",
+  "name": "Angel Wings",
+  "rarity": "LEGENDARY"
+ },
+ {
+  "kind": "back",
+  "id": "bat_wings",
+  "name": "Bat Wings",
+  "rarity": "EPIC"
+ },
+ {
+  "kind": "back",
+  "id": "butterfly_wings",
+  "name": "Butterfly Wings",
+  "rarity": "EPIC"
+ },
+ {
+  "kind": "back",
+  "id": "dragon_wings",
+  "name": "Dragon Wings",
+  "rarity": "MYTHIC"
+ },
+ {
+  "kind": "back",
+  "id": "phoenix_wings",
+  "name": "Phoenix Wings",
+  "rarity": "MYTHIC"
+ },
+ {
+  "kind": "back",
+  "id": "mech_wings",
+  "name": "Mech Wings",
+  "rarity": "LEGENDARY"
+ },
+ {
+  "kind": "back",
+  "id": "frost_wings",
+  "name": "Frost Wings",
+  "rarity": "LEGENDARY"
+ },
+ {
+  "kind": "back",
+  "id": "leaf_wings",
+  "name": "Leaf Wings",
+  "rarity": "RARE"
+ },
+ {
+  "kind": "back",
+  "id": "royal_cape",
+  "name": "Royal Cape",
+  "rarity": "LEGENDARY"
+ },
+ {
+  "kind": "back",
+  "id": "frost_cape",
+  "name": "Frost Cape",
+  "rarity": "EPIC"
+ },
+ {
+  "kind": "back",
+  "id": "cape_banner",
+  "name": "Cape Banner",
+  "rarity": "RARE"
+ },
+ {
+  "kind": "back",
+  "id": "compact_jetpack",
+  "name": "Compact Jetpack",
+  "rarity": "RARE"
+ },
+ {
+  "kind": "back",
+  "id": "tool_backpack",
+  "name": "Tool Backpack",
+  "rarity": "COMMON"
+ },
+ {
+  "kind": "back",
+  "id": "fish_tank",
+  "name": "Fish Tank",
+  "rarity": "EPIC"
+ },
+ {
+  "kind": "back",
+  "id": "tractor_toolcase",
+  "name": "Tractor Toolcase",
+  "rarity": "RARE"
+ },
+ {
+  "kind": "back",
+  "id": "dragon_spines",
+  "name": "Dragon Spines",
+  "rarity": "EPIC"
+ },
+ {
+  "kind": "back",
+  "id": "energy_cell",
+  "name": "Energy Cell",
+  "rarity": "RARE"
+ },
+ {
+  "kind": "back",
+  "id": "neon_battery",
+  "name": "Neon Battery",
+  "rarity": "RARE"
+ },
+ {
+  "kind": "back",
+  "id": "hiking_bag",
+  "name": "Hiking Bag",
+  "rarity": "COMMON"
+ },
+ {
+  "kind": "back",
+  "id": "quiver",
+  "name": "Quiver",
+  "rarity": "COMMON"
+ },
+ {
+  "kind": "back",
+  "id": "shield_emblem",
+  "name": "Shield Emblem",
+  "rarity": "EPIC"
+ },
+ {
+  "kind": "back",
+  "id": "gear_wheel",
+  "name": "Gear Wheel",
+  "rarity": "RARE"
+ },
+ {
+  "kind": "back",
+  "id": "solar_panel",
+  "name": "Solar Panel",
+  "rarity": "EPIC"
+ },
+ {
+  "kind": "back",
+  "id": "void_orb",
+  "name": "Void Orb",
+  "rarity": "LEGENDARY"
+ },
+ {
+  "kind": "back",
+  "id": "rocket_pack",
+  "name": "Rocket Pack",
+  "rarity": "EPIC"
+ },
+ {
+  "kind": "back",
+  "id": "retro_jetpack",
+  "name": "Retro Jetpack",
+  "rarity": "RARE"
+ },
+ {
+  "kind": "back",
+  "id": "rod_on_back",
+  "name": "Rod on Back",
+  "rarity": "COMMON"
+ },
+ {
+  "kind": "back",
+  "id": "crossed_picks",
+  "name": "Crossed Picks",
+  "rarity": "EPIC"
+ },
+ {
+  "kind": "back",
+  "id": "harvest_basket",
+  "name": "Harvest Basket",
+  "rarity": "COMMON"
+ },
+ {
+  "kind": "back",
+  "id": "scuba_tank",
+  "name": "Scuba Tank",
+  "rarity": "RARE"
+ },
+ {
+  "kind": "back",
+  "id": "turtle_shell",
+  "name": "Turtle Shell",
+  "rarity": "RARE"
+ },
+ {
+  "kind": "back",
+  "id": "guitar",
+  "name": "Guitar",
+  "rarity": "EPIC"
+ },
+ {
+  "kind": "back",
+  "id": "crystal_quiver",
+  "name": "Crystal Quiver",
+  "rarity": "EPIC"
+ },
+ {
+  "kind": "back",
+  "id": "propeller_pack",
+  "name": "Propeller Pack",
+  "rarity": "LEGENDARY"
+ },
+ {
+  "kind": "outfit",
+  "id": "demon_lord",
+  "name": "Demon Lord",
+  "rarity": "MYTHIC"
+ },
+ {
+  "kind": "outfit",
+  "id": "shadow_knight",
+  "name": "Shadow Knight",
+  "rarity": "LEGENDARY"
+ },
+ {
+  "kind": "outfit",
+  "id": "seraph",
+  "name": "Seraph",
+  "rarity": "MYTHIC"
+ },
+ {
+  "kind": "outfit",
+  "id": "frost_warden",
+  "name": "Frost Warden",
+  "rarity": "LEGENDARY"
+ },
+ {
+  "kind": "outfit",
+  "id": "void_walker",
+  "name": "Void Walker",
+  "rarity": "MYTHIC"
+ },
+ {
+  "kind": "outfit",
+  "id": "jungle_spirit",
+  "name": "Jungle Spirit",
+  "rarity": "LEGENDARY"
+ },
+ {
+  "kind": "outfit",
+  "id": "neon_mech",
+  "name": "Neon Mech",
+  "rarity": "LEGENDARY"
+ },
+ {
+  "kind": "outfit",
+  "id": "golden_emperor",
+  "name": "Golden Emperor",
+  "rarity": "MYTHIC"
+ },
+ {
+  "kind": "misc",
+  "id": "skin_crate",
+  "name": "Skin Crate",
+  "rarity": ""
+ },
+ {
+  "kind": "misc",
+  "id": "skin_crate_lid",
+  "name": "Skin Crate Lid",
+  "rarity": ""
+ },
+ {
+  "kind": "pick",
+  "id": "stone_breaker",
+  "name": "Stone Breaker",
+  "rarity": "COMMON",
+  "text": "Rough, heavy, honest."
+ },
+ {
+  "kind": "pick",
+  "id": "copper_pick",
+  "name": "Copper Pick",
+  "rarity": "COMMON",
+  "text": "Shines until it doesn't."
+ },
+ {
+  "kind": "pick",
+  "id": "iron_digger",
+  "name": "Iron Digger",
+  "rarity": "COMMON",
+  "text": "The miner's old friend."
+ },
+ {
+  "kind": "pick",
+  "id": "oak_splitter",
+  "name": "Oak Splitter",
+  "rarity": "COMMON",
+  "text": "Carved from one old oak."
+ },
+ {
+  "kind": "pick",
+  "id": "coal_crusher",
+  "name": "Coal Crusher",
+  "rarity": "COMMON",
+  "text": "Black dust in every crack."
+ },
+ {
+  "kind": "pick",
+  "id": "sandstone_pick",
+  "name": "Sandstone Pick",
+  "rarity": "COMMON",
+  "text": "Warm from the desert sun."
+ },
+ {
+  "kind": "pick",
+  "id": "clay_chipper",
+  "name": "Clay Chipper",
+  "rarity": "COMMON",
+  "text": "Fired twice, cracks once."
+ },
+ {
+  "kind": "pick",
+  "id": "flint_pick",
+  "name": "Flint Pick",
+  "rarity": "COMMON",
+  "text": "Sharp edges, sharper sparks."
+ },
+ {
+  "kind": "pick",
+  "id": "granite_pick",
+  "name": "Granite Pick",
+  "rarity": "COMMON",
+  "text": "Speckled and stubborn."
+ },
+ {
+  "kind": "pick",
+  "id": "emerald_edge",
+  "name": "Emerald Edge",
+  "rarity": "RARE",
+  "text": "Cut from a single green vein."
+ },
+ {
+  "kind": "pick",
+  "id": "sapphire_pick",
+  "name": "Sapphire Pick",
+  "rarity": "RARE",
+  "text": "Deep blue and very cold."
+ },
+ {
+  "kind": "pick",
+  "id": "ruby_pick",
+  "name": "Ruby Pick",
+  "rarity": "RARE",
+  "text": "Burns red in the dark."
+ },
+ {
+  "kind": "pick",
+  "id": "frostbite",
+  "name": "Frostbite",
+  "rarity": "RARE",
+  "text": "Leaves ice on every block."
+ },
+ {
+  "kind": "pick",
+  "id": "toxic_pick",
+  "name": "Toxic Pick",
+  "rarity": "RARE",
+  "text": "Don't lick it."
+ },
+ {
+  "kind": "pick",
+  "id": "rose_gold",
+  "name": "Rose Gold Pick",
+  "rarity": "RARE",
+  "text": "Polished every single night."
+ },
+ {
+  "kind": "pick",
+  "id": "ocean_pick",
+  "name": "Ocean Pick",
+  "rarity": "RARE",
+  "text": "Smells a little like salt."
+ },
+ {
+  "kind": "pick",
+  "id": "amethyst_pick",
+  "name": "Amethyst Pick",
+  "rarity": "RARE",
+  "text": "Hums when you swing it."
+ },
+ {
+  "kind": "pick",
+  "id": "shadow_reaper",
+  "name": "Shadow Reaper",
+  "rarity": "EPIC",
+  "text": "Mines in the shadows."
+ },
+ {
+  "kind": "pick",
+  "id": "inferno_pick",
+  "name": "Inferno Pick",
+  "rarity": "EPIC",
+  "text": "Too hot to hold. Hold it anyway."
+ },
+ {
+  "kind": "pick",
+  "id": "storm_hammer",
+  "name": "Storm Hammer",
+  "rarity": "EPIC",
+  "text": "Every swing a thunderclap."
+ },
+ {
+  "kind": "pick",
+  "id": "crystal_shard",
+  "name": "Crystal Shard",
+  "rarity": "EPIC",
+  "text": "Grown, not forged."
+ },
+ {
+  "kind": "pick",
+  "id": "venom_fang",
+  "name": "Venom Fang",
+  "rarity": "EPIC",
+  "text": "Two fangs, one bite."
+ },
+ {
+  "kind": "pick",
+  "id": "nebula_pick",
+  "name": "Nebula Pick",
+  "rarity": "EPIC",
+  "text": "A small galaxy on a stick."
+ },
+ {
+  "kind": "pick",
+  "id": "solar_cleaver",
+  "name": "Solar Cleaver",
+  "rarity": "LEGENDARY",
+  "text": "Burns like the sun."
+ },
+ {
+  "kind": "pick",
+  "id": "comet_pick",
+  "name": "Comet Pick",
+  "rarity": "LEGENDARY",
+  "text": "Fell from the sky last night."
+ },
+ {
+  "kind": "pick",
+  "id": "dragonbone",
+  "name": "Dragonbone Pick",
+  "rarity": "LEGENDARY",
+  "text": "From a dragon nobody misses."
+ },
+ {
+  "kind": "pick",
+  "id": "abyssal_trident",
+  "name": "Abyssal Trident",
+  "rarity": "LEGENDARY",
+  "text": "Pulled up from the deep."
+ },
+ {
+  "kind": "pick",
+  "id": "prism_pick",
+  "name": "Prism Pick",
+  "rarity": "LEGENDARY",
+  "text": "Splits the light in seven."
+ },
+ {
+  "kind": "pick",
+  "id": "thunder_god",
+  "name": "Thunder God Pick",
+  "rarity": "MYTHIC",
+  "text": "The king of the storm's own pick."
+ },
+ {
+  "kind": "pick",
+  "id": "nexium_core",
+  "name": "Nexium Core Pick",
+  "rarity": "MYTHIC",
+  "text": "Mined out of the core itself."
+ }
+]

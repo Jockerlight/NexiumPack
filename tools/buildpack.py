@@ -13,16 +13,23 @@ The zip is the same byte for byte for the same files (sorted names, fixed
 dates), so its SHA-1 only changes when the pack really changes and players
 only download it again then.
 
+Made small on purpose (players download it on join): every JSON is
+minified, every PNG is re-saved as the smallest lossless PNG (an indexed
+palette when it has 256 colours or fewer), nothing else goes in.
+
 Checks before zipping: pack.mcmeta is there, every .json parses, and every
 texture a model names exists (a missing one shows as the purple/black
 "missing texture" in game).
 """
 import argparse
 import hashlib
+import io
 import json
 import sys
 import zipfile
 from pathlib import Path
+
+from PIL import Image
 
 ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "pack"
@@ -64,6 +71,54 @@ def check(paths):
     return errors
 
 
+def small_png(data):
+    """The smallest lossless PNG of an image (indexed when it fits)."""
+    im = Image.open(io.BytesIO(data))
+    im.load()
+    best = data
+    rgba = im.convert("RGBA")
+    cands = []
+    cols = rgba.getcolors(256)
+    if cols is not None:
+        pal_im = Image.new("P", rgba.size)
+        palette = []
+        index = {}
+        trans = []
+        for _, c in sorted(cols, key=lambda t: (t[1][3] != 0, t[1])):
+            index[c] = len(palette)
+            palette.append(c)
+        flat = []
+        for c in palette:
+            flat += list(c[:3])
+            trans.append(c[3])
+        pal_im.putpalette(flat + [0] * (768 - len(flat)))
+        px = rgba.get_flattened_data() if hasattr(rgba, "get_flattened_data") else rgba.getdata()
+        pal_im.putdata([index[c] for c in px])
+        b = io.BytesIO()
+        if any(a < 255 for a in trans):
+            pal_im.save(b, "PNG", optimize=True, transparency=bytes(trans))
+        else:
+            pal_im.save(b, "PNG", optimize=True)
+        cands.append(b.getvalue())
+    b = io.BytesIO()
+    rgba.save(b, "PNG", optimize=True)
+    cands.append(b.getvalue())
+    for c in cands:
+        if len(c) < len(best):
+            best = c
+    return best
+
+
+def packed(p):
+    """The bytes that go into the zip for a source file."""
+    data = p.read_bytes()
+    if p.suffix in (".json", ".mcmeta"):
+        return json.dumps(json.loads(data.decode("utf-8")), separators=(",", ":"), ensure_ascii=False).encode("utf-8")
+    if p.suffix == ".png":
+        return small_png(data)
+    return data
+
+
 def build(out):
     paths = list(files())
     errors = check(paths)
@@ -77,7 +132,7 @@ def build(out):
             info = zipfile.ZipInfo(p.relative_to(SRC).as_posix(), FIXED_DATE)
             info.compress_type = zipfile.ZIP_DEFLATED
             info.external_attr = 0o644 << 16
-            z.writestr(info, p.read_bytes())
+            z.writestr(info, packed(p))
     data = out.read_bytes()
     return len(paths), len(data), hashlib.sha1(data).hexdigest()
 
