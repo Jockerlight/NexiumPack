@@ -14,7 +14,10 @@ game version whose shader we know (the files differ between versions):
   pack/nx_wave_88/   26.2 (pack format 88)
   pack/nx_wave_97/   26.3 (pack format 97)
 For another version: add its vanilla core/text.vsh below (from that
-version's client jar), add the overlay to pack.mcmeta.
+version's client jar), add the overlay to pack.mcmeta with "formats",
+"min_format" and "max_format" (all three, same range) and keep the
+nx_compat entry there: without it Minecraft 26.x rejects the whole pack
+(tools/buildpack.py checks this).
 
 The server sends the wave colours, see sp_rb_line / sp_pr_line in the
 SimuxPrison repository (40_progression/ranks.sk): the seven colours must

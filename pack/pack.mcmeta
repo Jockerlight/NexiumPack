@@ -23,6 +23,15 @@
     "entries": [
       {
         "formats": [
+          46,
+          46
+        ],
+        "min_format": 46,
+        "max_format": 46,
+        "directory": "nx_compat"
+      },
+      {
+        "formats": [
           88,
           88
         ],

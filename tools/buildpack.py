@@ -68,6 +68,53 @@ def check(paths):
                         continue  # vanilla texture: comes with the game
                     if f"assets/{ns}/textures/{path}.png" not in rel:
                         errors.append(f"{r}: texture {tex} not found (assets/{ns}/textures/{path}.png)")
+            if r == "pack.mcmeta":
+                errors += check_overlays(data)
+    return errors
+
+
+def _major(v):
+    return v[0] if isinstance(v, list) else v
+
+
+def check_overlays(meta):
+    """The overlay rules of Minecraft 1.21.9+ (resource pack format 65).
+
+    A pack.mcmeta that breaks them is rejected as a whole: the game drops
+    the entire pack, players see missing textures everywhere.
+      - The pack supports formats below 65 (min_format < 65): old clients
+        read only "formats", so every overlay entry needs it, and new
+        clients only accept "formats" when at least one overlay entry
+        reaches below 65 (that is what the nx_compat entry is for).
+      - The pack starts at 65 or later: no entry may have "formats".
+      - "formats" must say the same range as min_format / max_format.
+    """
+    errors = []
+    entries = (meta.get("overlays") or {}).get("entries") or []
+    if not entries:
+        return errors
+    pack_min = _major(meta.get("pack", {}).get("min_format", meta.get("pack", {}).get("pack_format", 0)))
+    old = pack_min < 65
+    reaches_old = any(_major(e.get("min_format", 999)) < 65 for e in entries)
+    for e in entries:
+        d = e.get("directory", "?")
+        if "min_format" not in e or "max_format" not in e:
+            errors.append(f'pack.mcmeta: overlay "{d}" needs min_format and max_format')
+            continue
+        lo, hi = _major(e["min_format"]), _major(e["max_format"])
+        if old:
+            f = e.get("formats")
+            if f is None:
+                errors.append(f'pack.mcmeta: overlay "{d}" needs "formats" (the pack supports clients older than format 65)')
+            else:
+                rng = [f, f] if isinstance(f, int) else ([f.get("min_inclusive"), f.get("max_inclusive")] if isinstance(f, dict) else list(f))
+                if rng != [lo, hi]:
+                    errors.append(f'pack.mcmeta: overlay "{d}": formats {f} doesn\'t match min_format/max_format {lo}..{hi}')
+        elif "formats" in e:
+            errors.append(f'pack.mcmeta: overlay "{d}" must not have "formats" (the pack starts at format 65 or later)')
+    if old and not reaches_old:
+        errors.append('pack.mcmeta: with "formats" in the overlays, at least one overlay must reach below format 65 '
+                       '(Minecraft 26.x rejects the whole pack otherwise), keep the nx_compat entry')
     return errors
 
 

@@ -142,6 +142,15 @@ so it comes as overlays (`pack.mcmeta`): `pack/nx_wave_88/` for 26.2 and
 still rainbow. `python tools/build_shaders.py` writes both overlays; a new
 Minecraft version needs its vanilla `core/text.vsh` added there.
 
+Overlay entries in `pack.mcmeta` have strict rules, and breaking them makes
+Minecraft drop the **whole** pack (purple and black items, no menu banner):
+because the pack also supports clients older than 1.21.9 (format 65), every
+entry needs `formats` next to `min_format` / `max_format` (old clients only
+read `formats`), and Minecraft 26.x only accepts `formats` when at least one
+entry reaches below format 65. That is the job of the `nx_compat` entry
+(format 46, an empty folder): keep it. `tools/buildpack.py` checks these
+rules and stops the build when one is broken.
+
 ## Menu title banner
 
 `python tools/build_gui.py --preview` draws the banner and the title font
